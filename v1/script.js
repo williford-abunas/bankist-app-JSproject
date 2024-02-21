@@ -182,3 +182,56 @@ btnSort.addEventListener('click', function (e) {
   displayMovements(currentAccount.movements, !sorted);
   sorted = !sorted;
 });
+
+//LECTURES
+//Numbers - base 2 X 64 in JS
+//parseInt - to whole numbers
+//accepts radix argument - 10 = base 10, 2 = binary
+//parseFloat - to whole decimal numbers
+console.log(Number.parseInt('30px', 10));
+console.log(Number.parseInt('e30px', 10));
+
+console.log(Number.parseInt('2.5rem', 10));
+console.log(Number.parseFloat('2.5rem', 10));
+
+console.log(Number.isNaN(20));
+console.log(Number.isNaN('20'));
+console.log(Number.isNaN(+'20'));
+console.log(Number.isNaN(23 / 0));
+
+console.log(Number.isFinite(20));
+console.log(Number.isFinite('20'));
+console.log(Number.isFinite(+'20'));
+console.log(Number.isFinite(23 / 0));
+
+//Rounding & more
+
+console.log(Math.sqrt(25));
+console.log(Math.max(5, 15, 6, '90'));
+console.log(Math.min(5, 15, 6, '90', 2));
+console.log(Math.PI * Number.parseFloat('10px') ** 2);
+
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min) + 1) + min;
+
+console.log(randomInt(10, 20));
+
+//Rounding
+//removes any decimal part
+console.log(Math.trunc(23.3));
+//round to nearest integer
+console.log(Math.round(23.3));
+console.log(Math.round(23.9));
+//round up
+console.log(Math.ceil(23.3));
+console.log(Math.ceil(23.9));
+//round down
+console.log(Math.floor(23.3));
+console.log(Math.floor(23.9));
+//floor and trunc works similar in positive numbers but not in negative numbers
+
+//Rounding decimals
+//toFix always return a string
+console.log((2.7).toFixed(0));
+console.log((2.7).toFixed(3));
+console.log(+(2.735).toFixed(2));
