@@ -307,3 +307,12 @@ console.log(new Date(2142210180000));
 console.log(Date.now());
 future.setFullYear(2040);
 console.log(future);
+
+//Operation with dates
+console.log(+future);
+
+const datePassed = (date1, date2) =>
+  Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+
+const day1 = datePassed(new Date(2037, 3, 4), new Date(2037, 3, 14));
+console.log(day1);
