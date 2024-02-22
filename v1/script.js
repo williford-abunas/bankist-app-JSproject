@@ -308,6 +308,15 @@ console.log(Date.now());
 future.setFullYear(2040);
 console.log(future);
 
+//Create current date
+const now = new Date();
+const day = `${now.getDate()}`.padStart(2, 0);
+const month = `${now.getMonth() + 1}`.padStart(2, 0);
+const year = now.getFullYear();
+const hour = `${now.getHours()}`.padStart(2, 0);
+const minute = `${now.getMinutes()}`.padStart(2, 0);
+labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minute}`;
+
 //Operation with dates
 console.log(+future);
 
@@ -316,3 +325,5 @@ const datePassed = (date1, date2) =>
 
 const day1 = datePassed(new Date(2037, 3, 4), new Date(2037, 3, 14));
 console.log(day1);
+
+//internationalization APi
