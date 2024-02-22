@@ -235,3 +235,75 @@ console.log(Math.floor(23.9));
 console.log((2.7).toFixed(0));
 console.log((2.7).toFixed(3));
 console.log(+(2.735).toFixed(2));
+
+//Remainder operator or Modulo
+console.log(5 % 2);
+console.log(5 / 2);
+
+const isEven = n => n % 2 === 0;
+console.log(isEven(8));
+console.log(isEven(9));
+
+document
+  .querySelector('.balance__label')
+  .addEventListener('click', function () {
+    [...document.querySelectorAll('.movements__row')].forEach((row, i) => {
+      if (i % 2 === 0) row.style.backgroundColor = 'pink';
+      if (i % 3 === 0) row.style.backgroundColor = 'lightblue';
+    });
+  });
+
+//Numeric Separators- only works with numbers
+const diameter = 287_460_000_000;
+console.log(diameter);
+
+const priceCents = 345_99;
+console.log(priceCents);
+
+const fee1 = 15_00;
+const fee2 = 1_500;
+
+console.log(Number('230_000')); //Nan
+console.log(parseInt('230_000')); //230
+
+//BigInt n
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+
+console.log(2 ** 53 + 1);
+
+console.log(34324242342355252342342434244234n * 1000000n);
+console.log(BigInt(343242423));
+
+const huge = 34324242342355252342342434244234n;
+const num = 8908;
+console.log(huge * BigInt(num));
+
+//Dates and Times
+
+//Create Dates
+// const now = new Date();
+// console.log(now);
+// console.log(new Date('December 24, 2015'));
+
+// console.log(new Date(0));
+// console.log(new Date(3 * 24 * 60 * 60 * 1000));
+
+//Working with dates
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime());
+
+console.log(new Date(2142210180000));
+console.log(Date.now());
+future.setFullYear(2040);
+console.log(future);
