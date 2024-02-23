@@ -74,7 +74,7 @@ const displayMovements = function (acc, sort = false) {
     const formattedMov = formatCur(mov, acc.locale, acc.currency);
 
     const html = `<div class="movements__row">
-    <div class="movements__type movements__type--${type}">${i + 1}${type}</div>
+    <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
     <div class="movements__date">${displayDate}</div>
     <div class="movements__value">${formattedMov}</div>
     </div>`;
@@ -217,13 +217,14 @@ btnLoan.addEventListener('click', function (e) {
   const amount = Number(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount / 10)) {
-    //Add mov
-    currentAccount.movements.push(amount);
+    setTimeout(function () {
+      //Add mov
+      currentAccount.movements.push(amount);
+      //Add loan date
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    //Add loan date
-    currentAccount.movementsDates.push(new Date().toISOString());
-
-    updateUI(currentAccount);
+      updateUI(currentAccount);
+    }, 2500);
   }
 
   inputLoanAmount.value = '';
@@ -254,3 +255,12 @@ btnSort.addEventListener('click', function (e) {
   displayMovements(currentAccount, !sorted);
   sorted = !sorted;
 });
+
+setInterval(function () {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+
+  console.log(`${hours} : ${minutes} : ${seconds}`);
+}, 1000);
