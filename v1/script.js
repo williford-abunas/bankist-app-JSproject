@@ -327,3 +327,18 @@ const day1 = datePassed(new Date(2037, 3, 4), new Date(2037, 3, 14));
 console.log(day1);
 
 //internationalization APi
+const numEx = 3884764.23;
+
+const options = {
+  style: 'currency',
+  unit: 'celsius',
+  currency: 'EUR',
+};
+
+console.log('US:', new Intl.NumberFormat('en-US', options).format(numEx));
+console.log('Germany:', new Intl.NumberFormat('de-DE', options).format(numEx));
+console.log('Syria:', new Intl.NumberFormat('ar-SY', options).format(numEx));
+console.log(
+  'Browser:',
+  new Intl.NumberFormat(navigator.language, options).format(numEx)
+);
