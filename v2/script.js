@@ -142,7 +142,7 @@ let currentAccount, timer;
 
 const startLogOutTimer = function () {
   //Set time 5 min
-  let time = 120;
+  let time = 6000;
 
   const tick = function () {
     const min = String(Math.trunc(time / 60)).padStart(2, 0);
@@ -172,7 +172,6 @@ btnLogin.addEventListener('click', function (e) {
   currentAccount = data.accounts.find(
     acc => acc.username === inputLoginUsername.value
   );
-  console.log(currentAccount);
 
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     //display UI
@@ -191,8 +190,6 @@ btnLogin.addEventListener('click', function (e) {
       hour: 'numeric',
       minute: 'numeric',
     };
-
-    // const locale = navigator.language;
 
     labelDate.textContent = new Intl.DateTimeFormat(
       currentAccount.locale,
@@ -287,12 +284,3 @@ btnSort.addEventListener('click', function (e) {
   displayMovements(currentAccount, !sorted);
   sorted = !sorted;
 });
-
-setInterval(function () {
-  const now = new Date();
-  const hours = now.getHours();
-  const minutes = now.getMinutes();
-  const seconds = now.getSeconds();
-
-  console.log(`${hours} : ${minutes} : ${seconds}`);
-}, 1000);
